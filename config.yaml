@@ -1,0 +1,20 @@
+project_name: financial-news-sentiment-impact
+random_seed: 42
+paths:
+  data_raw: data/raw/news.csv
+  data_market: data/raw/market.csv
+  data_processed: data/processed/preprocessed.parquet
+  embeddings: data/embeddings/news_embeddings.npy
+  sentiment_model: data/models/sentiment_model.joblib
+  market_model: data/models/market_reaction_model.joblib
+training:
+  sentiment:
+    test_size: 0.2
+    max_features: 500
+    regularization: 1.0
+  market_reaction:
+    horizon_days: 3
+    lookback_days: 5
+logging:
+  level: INFO
+  log_file: logs/pipeline.log
